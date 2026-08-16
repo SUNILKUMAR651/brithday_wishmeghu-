@@ -1533,32 +1533,38 @@
         // --- 3. PHOTO MANAGEMENT & 3D INTERACTIVE GALLERY ---
         const DEFAULT_MEMORIES = [
             {
-                url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
+                url: 'images/1.jpg',
+                fallback: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
                 title: 'मासूम मुस्कान • Meri Sweet Meghu 💖',
                 tag: '✨ SPECIAL MEGHU ✨'
             },
             {
-                url: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80',
+                url: 'images/2.jpg',
+                fallback: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80',
                 title: 'आंखों में उड़ने के सपने ✈️✨',
                 tag: '🌟 DREAMS TO FLY'
             },
             {
-                url: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80',
+                url: 'images/3.jpg',
+                fallback: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80',
                 title: 'The Bright Student 📚🌟',
                 tag: '💫 SHINING STAR'
             },
             {
-                url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80',
+                url: 'images/4.jpg',
+                fallback: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80',
                 title: 'Touch The Sky With Glory 🌸',
                 tag: '💖 FOREVER SPECIAL'
             },
             {
-                url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80',
+                url: 'images/5.jpg',
+                fallback: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80',
                 title: 'Brave Heart & Pure Soul 🇮🇳',
                 tag: '🇮🇳 BIG DREAMS'
             },
             {
-                url: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80',
+                url: 'images/6.jpg',
+                fallback: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80',
                 title: 'Forever Radiant • Happy Birthday Meghu',
                 tag: '🎂 HAPPY BIRTHDAY'
             }
@@ -1613,7 +1619,7 @@
 
                     <div class="frame-inner-matte">
                         <div class="glass-reflection"></div>
-                        <img src="${item.url}" alt="${item.title || 'Meghu Photo'}" loading="lazy">
+                        <img src="${item.url}" onerror="if('${item.fallback || ''}' && this.src !== '${item.fallback || ''}') { this.src = '${item.fallback || ''}'; }" alt="${item.title || 'Meghu Photo'}" loading="lazy">
                         <div class="frame-caption-bar">
                             <span class="frame-caption-title">${item.title || 'Birthday Memory'}</span>
                             <span class="frame-badge-no">#${index + 1}</span>
@@ -1667,7 +1673,7 @@
                         <span class="corner-bracket br"></span>
                         <div class="frame-inner-matte">
                             <div class="glass-reflection"></div>
-                            <img src="${item.url}" alt="${item.title || 'Meghu Photo'}" loading="lazy">
+                            <img src="${item.url}" onerror="if('${item.fallback || ''}' && this.src !== '${item.fallback || ''}') { this.src = '${item.fallback || ''}'; }" alt="${item.title || 'Meghu Photo'}" loading="lazy">
                             <div class="frame-caption-bar">
                                 <span class="frame-caption-title">${item.title || 'Memory'}</span>
                                 <span class="frame-badge-no">#${index + 1}</span>
@@ -1867,6 +1873,11 @@
 
         function updateLightboxContent() {
             const item = photos[currentLightboxIndex];
+            lightboxImg.onerror = function() {
+                if (item.fallback && this.src !== item.fallback) {
+                    this.src = item.fallback;
+                }
+            };
             lightboxImg.src = item.url;
             lightboxCaptionText.textContent = item.title || '🎂 Happy Birthday Meri Special Meghu (जिस्से)';
             lightboxCounterPill.textContent = `${currentLightboxIndex + 1} / ${photos.length}`;
