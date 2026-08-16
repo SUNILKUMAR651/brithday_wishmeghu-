@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎂 Happy Birthday Meghu (जिस्से) | Indian Air Force 3D Celebration</title>
+    <title>🎂 Happy Birthday Meghu (जिस्से) | With Big Dreams & Air Salute ✈️💖</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;600;800;900&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;600;700;800;900&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
@@ -24,9 +24,10 @@
             --tiranga-white: #FFFFFF;
             --tiranga-green: #138808;
             --tiranga-blue: #000080;
-            --glass-bg: rgba(10, 28, 54, 0.75);
+            --heart-pink: #ff5e97;
+            --glass-bg: rgba(10, 28, 54, 0.78);
             --glass-border: rgba(212, 175, 55, 0.4);
-            --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
         }
 
         * {
@@ -64,7 +65,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 50% 15%, rgba(212, 175, 55, 0.15), transparent 60%),
+            background: radial-gradient(circle at 50% 15%, rgba(212, 175, 55, 0.18), transparent 60%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 94, 151, 0.08), transparent 50%),
                         linear-gradient(180deg, rgba(5, 19, 41, 0.85) 0%, rgba(13, 40, 79, 0.7) 40%, rgba(7, 24, 48, 0.95) 100%);
             z-index: 1;
             pointer-events: none;
@@ -79,7 +81,7 @@
             padding: 1.5rem 1rem 4rem;
         }
 
-        /* Top Floating Navigation / Audio Controls */
+        /* Top Floating Navigation */
         .top-bar {
             display: flex;
             justify-content: space-between;
@@ -99,11 +101,10 @@
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             font-weight: 800;
             color: var(--gold-primary);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .iaf-roundel-icon {
@@ -165,7 +166,7 @@
         /* Hero Header Section */
         .hero-section {
             text-align: center;
-            padding: 1.5rem 0 2.5rem;
+            padding: 1.5rem 0 2rem;
             position: relative;
         }
 
@@ -173,28 +174,28 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1.2rem;
             margin-bottom: 0.8rem;
             animation: pulseGlow 3s infinite alternate;
         }
 
         .hero-insignia i.fa-fighter-jet {
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: var(--gold-primary);
             filter: drop-shadow(0 0 15px var(--gold-glow));
         }
 
         .hero-insignia .iaf-crest {
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             color: var(--gold-secondary);
             filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.8));
         }
 
         .hero-motto {
-            font-size: 1rem;
-            letter-spacing: 4px;
+            font-size: 0.95rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: #8bb8e8;
+            color: #a0cbf7;
             font-weight: 700;
             margin-bottom: 0.5rem;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
@@ -202,20 +203,20 @@
 
         .hero-title {
             font-family: 'Rozha One', 'Yatra One', 'Cinzel', serif;
-            font-size: clamp(2.6rem, 7vw, 4.8rem);
+            font-size: clamp(2.5rem, 6.5vw, 4.6rem);
             font-weight: 900;
             background: linear-gradient(135deg, #fff 0%, #ffeaa7 30%, #d4af37 70%, #fff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
             letter-spacing: 2px;
-            line-height: 1.15;
+            line-height: 1.2;
             margin-bottom: 0.6rem;
             animation: titleFloat 4s ease-in-out infinite alternate;
         }
 
         .hero-subtitle {
-            font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+            font-size: clamp(1.05rem, 2.5vw, 1.5rem);
             font-weight: 700;
             color: #e2f1ff;
             text-shadow: 0 0 20px rgba(74, 144, 226, 0.6);
@@ -229,7 +230,7 @@
         .tiranga-badge {
             display: inline-flex;
             align-items: center;
-            padding: 4px 14px;
+            padding: 4px 16px;
             border-radius: 20px;
             background: linear-gradient(90deg, rgba(255, 153, 51, 0.25), rgba(255, 255, 255, 0.25), rgba(19, 136, 8, 0.25));
             border: 1px solid rgba(255, 255, 255, 0.4);
@@ -240,7 +241,35 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* Interactive Action Buttons & Salute Banner */
+        .heart-badge {
+            background: linear-gradient(135deg, rgba(255, 94, 151, 0.3), rgba(255, 153, 51, 0.3));
+            border: 1px solid rgba(255, 94, 151, 0.5);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: #ffe6f0;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Emotional Thoughtful Quote Bar */
+        .emotional-quote-bar {
+            max-width: 820px;
+            margin: 1.2rem auto 0;
+            padding: 0.8rem 1.6rem;
+            background: rgba(13, 40, 79, 0.55);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 30px;
+            font-size: 0.95rem;
+            color: #d8ecff;
+            line-height: 1.6;
+            backdrop-filter: blur(10px);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+
+        /* Interactive Action Buttons */
         .action-strip {
             display: flex;
             justify-content: center;
@@ -257,13 +286,13 @@
             color: #051329;
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
-            font-size: clamp(1rem, 2.2vw, 1.25rem);
+            font-size: clamp(1rem, 2.2vw, 1.2rem);
             padding: 1.1rem 2.6rem;
             border-radius: 50px;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.9rem;
             box-shadow: 0 15px 40px rgba(255, 153, 51, 0.4), 0 0 30px rgba(212, 175, 55, 0.4);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
@@ -442,7 +471,7 @@
         .corner-bracket.bl { bottom: 6px; left: 6px; border-right: none; border-top: none; border-radius: 0 0 0 8px; }
         .corner-bracket.br { bottom: 6px; right: 6px; border-left: none; border-top: none; border-radius: 0 0 8px 0; }
 
-        /* IAF Golden Wings Top Crest */
+        /* Top Frame Crest */
         .frame-top-wings {
             position: absolute;
             top: -14px;
@@ -593,7 +622,7 @@
             box-shadow: 0 0 25px var(--gold-glow);
         }
 
-        /* Empty State / Photo Counter */
+        /* Status Bar / Photo Counter */
         .gallery-status-bar {
             display: flex;
             justify-content: space-between;
@@ -617,9 +646,9 @@
             color: var(--gold-primary);
         }
 
-        /* Birthday Tribute Card / Letter */
+        /* Birthday Tribute Box - Respectful & Heartfelt */
         .tribute-box {
-            background: linear-gradient(135deg, rgba(13, 40, 79, 0.8), rgba(5, 19, 41, 0.95));
+            background: linear-gradient(135deg, rgba(13, 40, 79, 0.85), rgba(5, 19, 41, 0.97));
             border: 2px solid var(--gold-secondary);
             border-radius: 30px;
             padding: 2.5rem 2rem;
@@ -628,11 +657,11 @@
             position: relative;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(212, 175, 55, 0.2);
             backdrop-filter: blur(20px);
-            max-width: 900px;
+            max-width: 920px;
         }
 
         .tribute-box::before {
-            content: '🇮🇳 AIR FORCE SPECIAL TRIBUTE 🇮🇳';
+            content: '✨ FOR MY MOST SPECIAL PERSON • MEGHU ✨';
             position: absolute;
             top: -15px;
             left: 50%;
@@ -641,16 +670,16 @@
             color: #051329;
             font-weight: 900;
             font-size: 0.85rem;
-            padding: 4px 20px;
+            padding: 4px 22px;
             border-radius: 20px;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             border: 1px solid #fff;
             box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
         .tribute-text {
-            font-size: clamp(1.1rem, 2.2vw, 1.35rem);
-            line-height: 1.8;
+            font-size: clamp(1.05rem, 2.1vw, 1.3rem);
+            line-height: 1.85;
             color: #e2f1ff;
             font-weight: 500;
             margin-bottom: 1.5rem;
@@ -658,14 +687,14 @@
 
         .tribute-text strong {
             color: var(--gold-primary);
-            font-size: 1.2em;
+            font-size: 1.15em;
         }
 
         .tribute-sender {
             font-size: 1.1rem;
             font-weight: 800;
             color: var(--gold-primary);
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
         }
 
         /* 3D Lightbox Modal */
@@ -829,27 +858,27 @@
 
         .salute-banner-title {
             font-family: 'Rozha One', 'Cinzel', serif;
-            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
             color: var(--gold-primary);
             margin-bottom: 0.8rem;
             text-shadow: 0 0 25px var(--gold-glow);
         }
 
         .salute-banner-sub {
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-size: clamp(1.05rem, 2.3vw, 1.45rem);
             color: #ffffff;
             font-weight: 700;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         /* Scramble Jet Button on Sky */
         .sky-interactive-hint {
             text-align: center;
             font-size: 0.85rem;
-            color: #8bb8e8;
+            color: #a0cbf7;
             letter-spacing: 1px;
-            margin-top: 0.5rem;
-            opacity: 0.8;
+            margin-top: 0.8rem;
+            opacity: 0.9;
         }
 
         /* Footer */
@@ -926,7 +955,7 @@
             .frame-top-wings { font-size: 0.65rem; padding: 2px 10px; top: -10px; }
             .corner-bracket { width: 18px; height: 18px; }
             .top-bar { padding: 0.6rem 1rem; }
-            .btn-salute { padding: 0.9rem 1.8rem; font-size: 1rem; width: 100%; justify-content: center; }
+            .btn-salute { padding: 0.9rem 1.8rem; font-size: 0.95rem; width: 100%; justify-content: center; }
             .btn-upload { width: 100%; justify-content: center; }
             .salute-banner-popup { padding: 1.8rem 1.5rem; width: 90%; }
         }
@@ -944,10 +973,10 @@
         <header class="top-bar">
             <div class="iaf-branding">
                 <span class="iaf-roundel-icon"></span>
-                <span>भारतीय वायु सेना • IAF Salute</span>
+                <span>Air Force Themed Tribute • Dedicated to Meghu 💖</span>
             </div>
             <div class="quick-controls">
-                <button class="btn-ctrl" id="scrambleJetBtn" title="Scramble Fighter Jet / नया जेट उड़ाएं">
+                <button class="btn-ctrl" id="scrambleJetBtn" title="Scramble Fighter Jet / मेघू के लिए नया जेट उड़ाएं">
                     <i class="fas fa-fighter-jet"></i>
                 </button>
                 <button class="btn-ctrl" id="soundToggleBtn" title="Sound Mute/Unmute">
@@ -966,20 +995,27 @@
                 <i class="fas fa-crown iaf-crest"></i>
                 <i class="fas fa-fighter-jet" style="transform: scaleX(-1);"></i>
             </div>
-            <div class="hero-motto">नभः स्पृशं दीप्तम् • Touch the Sky with Glory</div>
+            <div class="hero-motto">नभः स्पृशं दीप्तम् • Touch the Sky with Glory & Dreams</div>
             <h1 class="hero-title">🎂 Happy Birthday Meghu 🎂</h1>
             <div class="hero-subtitle">
-                <span>✨ हमारी प्यारी जिस्से (Meghu) ✨</span>
-                <span class="tiranga-badge">🇮🇳 एयरफोर्स की शान 🇮🇳</span>
+                <span>✨ मेरी सबसे स्पेशल इंसान (जिस्से) ✨</span>
+                <span class="heart-badge"><i class="fas fa-graduation-cap"></i> The Brightest Student</span>
+                <span class="tiranga-badge">🇮🇳 आसमान जैसे बड़े सपने 🇮🇳</span>
             </div>
-            <p class="sky-interactive-hint">💡 टिप: स्क्रीन पर कहीं भी क्लिक करें या ऊपर जेट बटन दबाकर सुखोई/राफेल को तिरंगा स्मोक के साथ उड़ाएं!</p>
+
+            <!-- Emotional Thoughtful Quote Bar -->
+            <div class="emotional-quote-bar">
+                "चाहे वर्दी मिले न मिले, तेरे हौसले और इरादे हमेशा फाइटर जेट्स की तरह आसमान की बुलंदियों को छूते रहेंगे! तू हमेशा मेरे लिए सबसे खास है!" ✈️💖
+            </div>
+
+            <p class="sky-interactive-hint">💡 टिप: स्क्रीन पर कहीं भी क्लिक करें या ऊपर जेट बटन दबाकर मेघू के लिए सुखोई/राफेल को तिरंगा स्मोक के साथ उड़ाएं!</p>
         </section>
 
         <!-- Action Strip: Salute & Upload Buttons -->
         <div class="action-strip">
             <button class="btn-salute" id="saluteTriggerBtn">
                 <i class="fas fa-fighter-jet"></i>
-                21-जेट एयर शो सलामी
+                मेघू के सपनों के लिए 21-जेट सलामी
                 <i class="fas fa-fighter-jet" style="transform: scaleX(-1);"></i>
             </button>
 
@@ -1026,25 +1062,26 @@
             </div>
         </div>
 
-        <!-- Birthday Letter / Special IAF Tribute -->
+        <!-- Birthday Letter / Special Loving Tribute -->
         <div class="tribute-box">
             <div class="tribute-text">
-                "हौसलों की उड़ान हो, खुशियों का जहां हो,<br>
-                तुझे मिले वो मुकाम, जिसपे सारा आसमां फिदा हो!<br>
-                <strong>जन्मदिन की ढेर सारी शुभकामनाएं जिस्से (Meghu)!</strong><br>
-                तेरी मुस्कान हमेशा एयरफोर्स के फाइटर जेट्स की तरह बुलंदियों को छूती रहे!"
+                "भले ही राहें बदल जाएं, पर तेरे हौसलों की उड़ान कभी कम नहीं होगी!<br>
+                तू एक मेहनती और होनहार <strong>Student</strong> है, सबसे प्यारी इंसान है, और मेरी सबसे खास <strong>'मेघू (जिस्से)'</strong> है।<br>
+                तेरा वो एयरफोर्स का जज्बा आज भी तेरी आंखों और तेरे मजबूत इरादों में चमकता है!<br>
+                <strong>जन्मदिन की ढेर सारी शुभकामनाएं मेघू!</strong><br>
+                तू अपनी जिंदगी में हर वो मुकाम हासिल करे, जिसकी तू हकदार है!" ✈️💖🌟
             </div>
             <div class="tribute-sender">
-                <i class="fas fa-star" style="color:var(--tiranga-saffron);"></i> 
-                हमेशा खुश रहो • तेरा अपना स्काई गार्जियन 
-                <i class="fas fa-star" style="color:var(--tiranga-green);"></i>
+                <i class="fas fa-heart" style="color:var(--heart-pink);"></i> 
+                हमेशा मुस्कुराती रहो • तेरा अपना शुभचिंतक & स्काई गार्जियन 
+                <i class="fas fa-heart" style="color:var(--heart-pink);"></i>
             </div>
         </div>
 
         <!-- Footer -->
         <footer class="footer-bar">
-            <div>🇮🇳 Touch the Sky with Glory • Indian Air Force Themed Birthday Tribute for Meghu 🇮🇳</div>
-            <div style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.7;">Crafted with 3D Aerospace Simulation & Love</div>
+            <div>🇮🇳 Touch the Sky with Glory • Special Birthday Tribute for Meghu (जिस्से) 💖</div>
+            <div style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.7;">Made with Love, Big Dreams & 3D Aviation Animations</div>
         </footer>
 
     </div>
@@ -1060,7 +1097,7 @@
             </div>
 
             <div class="lightbox-details">
-                <div class="lightbox-caption-text" id="lightboxCaptionText">🎂 Meghu's Special Birthday Memory</div>
+                <div class="lightbox-caption-text" id="lightboxCaptionText">🎂 Happy Birthday Meri Special Meghu</div>
                 <div class="lightbox-counter-pill" id="lightboxCounterPill">1 / 1</div>
             </div>
 
@@ -1071,24 +1108,19 @@
     <!-- 21-Jet Salute Air Show Banner Popup -->
     <div class="salute-banner-popup" id="salutePopup">
         <div class="iaf-crest" style="font-size: 3rem; color: var(--gold-primary); margin-bottom: 0.5rem;">
-            <i class="fas fa-fighter-jet"></i> 🇮🇳 <i class="fas fa-fighter-jet" style="transform: scaleX(-1);"></i>
+            <i class="fas fa-fighter-jet"></i> 💖 <i class="fas fa-fighter-jet" style="transform: scaleX(-1);"></i>
         </div>
-        <h2 class="salute-banner-title">✨ 21-JET IAF AIR SALUTE ✨</h2>
+        <h2 class="salute-banner-title">✨ SPECIAL AIR SALUTE FOR MEGHU ✨</h2>
         <div class="salute-banner-sub">
-            जन्मदिन मुबारक हो, जिस्से (Meghu)!<br>
-            <span style="color: var(--tiranga-saffron); font-size: 1.1em;">आसमान की ऊंचाइयां</span> तेरे कदमों में हों! ✈️🇮🇳
+            जन्मदिन की ढेर सारी शुभकामनाएं, मेरी सबसे खास मेघू (जिस्से)!<br>
+            <span style="color: var(--tiranga-saffron); font-size: 1.1em;">तेरे सपनों और हौसलों को</span> पूरे आसमान का सलाम! ✈️💖🇮🇳
         </div>
     </div>
 
     <script>
     /**
      * INDIAN AIR FORCE 3D FIGHTER JET & SKY SIMULATION ENGINE
-     * Featuring:
-     * - Dynamic IAF Jet aircraft (Su-30MKI / Tejas delta wing profile with IAF Roundel & Fin Flash)
-     * - Tricolor Smoke Trails (Saffron, White, Green) with particle fluid dispersion
-     * - Multi-jet Formation Flights (Trishul formation, Vic formation)
-     * - Web Audio API Jet Engine sound synthesizer & birthday chimes
-     * - Interactive 3D tilt photo frames with local storage memory
+     * Dedicated with love & respect to Meghu (जिस्से)
      */
 
     (function() {
@@ -1172,7 +1204,7 @@
                 this.init();
                 if (!this.ctx) return;
 
-                const notes = [523.25, 659.25, 783.99, 1046.50, 880.00, 1046.50]; // C5, E5, G5, C6, A5, C6
+                const notes = [523.25, 659.25, 783.99, 1046.50, 880.00, 1046.50];
                 notes.forEach((freq, i) => {
                     const osc = this.ctx.createOscillator();
                     const gain = this.ctx.createGain();
@@ -1212,11 +1244,11 @@
             initStars();
         });
 
-        // Stars & Nebulas in Background
+        // Stars & Sparkles in Background
         let stars = [];
         function initStars() {
             stars = [];
-            const count = Math.floor((width * height) / 4500);
+            const count = Math.floor((width * height) / 4200);
             for (let i = 0; i < count; i++) {
                 stars.push({
                     x: Math.random() * width,
@@ -1224,7 +1256,7 @@
                     size: Math.random() * 2 + 0.5,
                     alpha: Math.random() * 0.8 + 0.2,
                     speed: Math.random() * 0.02 + 0.005,
-                    color: Math.random() > 0.7 ? '#ffeaa7' : '#ffffff'
+                    color: Math.random() > 0.6 ? '#ffeaa7' : (Math.random() > 0.8 ? '#ffb6c1' : '#ffffff')
                 });
             }
         }
@@ -1281,7 +1313,7 @@
                 this.smokeTimer = 0;
                 this.roll = 0;
                 this.turnSpeed = (Math.random() - 0.5) * 0.006;
-                this.trailColors = ['#FF9933', '#FFFFFF', '#138808']; // Tiranga colors
+                this.trailColors = ['#FF9933', '#FFFFFF', '#138808'];
             }
 
             update() {
@@ -1289,7 +1321,7 @@
                 this.x += Math.cos(this.angle) * this.speed;
                 this.y += Math.sin(this.angle) * this.speed;
 
-                // Emit Tricolor Smoke Trails from wings/nozzles
+                // Emit Tricolor Smoke Trails
                 this.smokeTimer++;
                 if (this.smokeTimer % 2 === 0) {
                     const wingSpan = 22 * this.scale;
@@ -1345,34 +1377,34 @@
                 ctx.strokeStyle = '#3b4e61';
                 ctx.lineWidth = 1.5;
 
-                // Main Jet Silhouette (Su-30MKI delta shape with canards)
+                // Main Jet Silhouette
                 ctx.beginPath();
-                ctx.moveTo(0, -42); // Nose Cone
-                ctx.quadraticCurveTo(6, -20, 8, -5); // Forebody
-                ctx.lineTo(16, -10); // Canard tip
+                ctx.moveTo(0, -42);
+                ctx.quadraticCurveTo(6, -20, 8, -5);
+                ctx.lineTo(16, -10);
                 ctx.lineTo(16, -2);
                 ctx.lineTo(9, 4);
-                ctx.lineTo(34, 18); // Wing tip right
+                ctx.lineTo(34, 18);
                 ctx.lineTo(34, 25);
                 ctx.lineTo(14, 25);
-                ctx.lineTo(12, 34); // Right Twin Engine tail
+                ctx.lineTo(12, 34);
                 ctx.lineTo(5, 34);
-                ctx.lineTo(0, 29);  // Tail sting
+                ctx.lineTo(0, 29);
                 ctx.lineTo(-5, 34);
-                ctx.lineTo(-12, 34); // Left Twin Engine tail
+                ctx.lineTo(-12, 34);
                 ctx.lineTo(-14, 25);
                 ctx.lineTo(-34, 25);
-                ctx.lineTo(-34, 18); // Wing tip left
+                ctx.lineTo(-34, 18);
                 ctx.lineTo(-9, 4);
                 ctx.lineTo(-16, -2);
-                ctx.lineTo(-16, -10); // Canard tip left
+                ctx.lineTo(-16, -10);
                 ctx.lineTo(-8, -5);
                 ctx.quadraticCurveTo(-6, -20, 0, -42);
                 ctx.closePath();
                 ctx.fill();
                 ctx.stroke();
 
-                // Wing Flaperons & Structural lines
+                // Structural Lines
                 ctx.strokeStyle = '#43586b';
                 ctx.beginPath();
                 ctx.moveTo(-28, 22); ctx.lineTo(-14, 22);
@@ -1388,41 +1420,35 @@
                 ctx.fill();
                 ctx.stroke();
 
-                // IAF Roundel on Wings (Saffron outer, White middle, Green center)
+                // IAF Roundel on Wings
                 const drawRoundel = (rx, ry, r) => {
                     ctx.beginPath();
                     ctx.arc(rx, ry, r, 0, Math.PI * 2);
-                    ctx.fillStyle = '#FF9933'; // Saffron
+                    ctx.fillStyle = '#FF9933';
                     ctx.fill();
 
                     ctx.beginPath();
                     ctx.arc(rx, ry, r * 0.66, 0, Math.PI * 2);
-                    ctx.fillStyle = '#FFFFFF'; // White
+                    ctx.fillStyle = '#FFFFFF';
                     ctx.fill();
 
                     ctx.beginPath();
                     ctx.arc(rx, ry, r * 0.33, 0, Math.PI * 2);
-                    ctx.fillStyle = '#138808'; // Green
+                    ctx.fillStyle = '#138808';
                     ctx.fill();
                 };
 
                 drawRoundel(-20, 12, 4.5);
                 drawRoundel(20, 12, 4.5);
 
-                // IAF Fin Flash on Tail (Tricolor Vertical Bars)
-                ctx.fillStyle = '#FF9933';
-                ctx.fillRect(-10, 27, 2, 6);
-                ctx.fillStyle = '#FFFFFF';
-                ctx.fillRect(-8, 27, 2, 6);
-                ctx.fillStyle = '#138808';
-                ctx.fillRect(-6, 27, 2, 6);
+                // Fin Flash on Tail
+                ctx.fillStyle = '#FF9933'; ctx.fillRect(-10, 27, 2, 6);
+                ctx.fillStyle = '#FFFFFF'; ctx.fillRect(-8, 27, 2, 6);
+                ctx.fillStyle = '#138808'; ctx.fillRect(-6, 27, 2, 6);
 
-                ctx.fillStyle = '#FF9933';
-                ctx.fillRect(6, 27, 2, 6);
-                ctx.fillStyle = '#FFFFFF';
-                ctx.fillRect(8, 27, 2, 6);
-                ctx.fillStyle = '#138808';
-                ctx.fillRect(10, 27, 2, 6);
+                ctx.fillStyle = '#FF9933'; ctx.fillRect(6, 27, 2, 6);
+                ctx.fillStyle = '#FFFFFF'; ctx.fillRect(8, 27, 2, 6);
+                ctx.fillStyle = '#138808'; ctx.fillRect(10, 27, 2, 6);
 
                 ctx.restore();
             }
@@ -1430,7 +1456,6 @@
 
         let activeJets = [];
 
-        // Spawn a random formation or solo jet
         function spawnJet(formationType = 'random') {
             const types = ['solo', 'vic', 'trishul'];
             const chosen = formationType === 'random' ? types[Math.floor(Math.random() * types.length)] : formationType;
@@ -1449,12 +1474,10 @@
             if (chosen === 'solo') {
                 activeJets.push(new FighterJet(startX, startY, angle, baseSpeed, scale));
             } else if (chosen === 'vic') {
-                // 3-Jet V formation
                 activeJets.push(new FighterJet(startX, startY, angle, baseSpeed, scale));
                 activeJets.push(new FighterJet(startX - Math.cos(angle) * 70 - Math.sin(angle) * 55, startY - Math.sin(angle) * 70 + Math.cos(angle) * 55, angle, baseSpeed, scale));
                 activeJets.push(new FighterJet(startX - Math.cos(angle) * 70 + Math.sin(angle) * 55, startY - Math.sin(angle) * 70 - Math.cos(angle) * 55, angle, baseSpeed, scale));
             } else if (chosen === 'trishul') {
-                // Trishul split formation
                 activeJets.push(new FighterJet(startX, startY, angle, baseSpeed + 1, scale * 1.1));
                 const jetL = new FighterJet(startX - 60, startY - 40, angle - 0.15, baseSpeed, scale);
                 jetL.turnSpeed = -0.005;
@@ -1466,13 +1489,11 @@
             soundEngine.playJetFlyby();
         }
 
-        // Spawn first flight
         setTimeout(() => spawnJet('vic'), 800);
         setInterval(() => {
             if (activeJets.length < 5) spawnJet('random');
         }, 6500);
 
-        // Click on sky or scramble button to fly a jet towards point
         function scrambleJetTowards(targetX, targetY) {
             const startX = targetX < width / 2 ? -80 : width + 80;
             const startY = targetY + (Math.random() - 0.5) * 200;
@@ -1482,7 +1503,6 @@
         }
 
         window.addEventListener('click', (e) => {
-            // Don't trigger if clicked on an interactive card/button
             if (!e.target.closest('.frame-3d-card') && 
                 !e.target.closest('button') && 
                 !e.target.closest('.lightbox-modal') && 
@@ -1491,7 +1511,7 @@
             }
         });
 
-        // Main Animation Loop
+        // Main Canvas Loop
         function animateCanvas() {
             ctx.clearRect(0, 0, width, height);
 
@@ -1507,7 +1527,7 @@
                 ctx.fill();
             }
 
-            // 2. Update & Draw Smoke Particles
+            // 2. Update & Draw Smoke
             for (let i = smokeParticles.length - 1; i >= 0; i--) {
                 const p = smokeParticles[i];
                 p.update();
@@ -1517,7 +1537,7 @@
                 }
             }
 
-            // 3. Update & Draw Fighter Jets
+            // 3. Update & Draw Jets
             for (let i = activeJets.length - 1; i >= 0; i--) {
                 const jet = activeJets[i];
                 jet.update();
@@ -1533,43 +1553,43 @@
 
 
         // --- 3. PHOTO MANAGEMENT & 3D INTERACTIVE GALLERY ---
+        // Warm, respectful, inspiring and loving default memories
         const DEFAULT_MEMORIES = [
             {
                 url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
-                title: 'Royal Smile • एयरफोर्स क्वीन',
-                tag: 'Special #1'
+                title: 'मासूम मुस्कान • Meri Sweet Meghu 💖',
+                tag: '✨ SPECIAL MEGHU ✨'
             },
             {
                 url: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80',
-                title: 'Sky Guardian Vibes • जिस्से',
-                tag: 'Special #2'
+                title: 'आंखों में उड़ने के सपने ✈️✨',
+                tag: '🌟 DREAMS TO FLY'
             },
             {
                 url: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80',
-                title: 'Golden Moments • Meghu',
-                tag: 'Special #3'
+                title: 'The Bright Student 📚🌟',
+                tag: '💫 SHINING STAR'
             },
             {
                 url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80',
-                title: 'Touch the Sky With Glory',
-                tag: 'Special #4'
+                title: 'Touch The Sky With Glory 🌸',
+                tag: '💖 FOREVER SPECIAL'
             },
             {
                 url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80',
-                title: 'Brave & Beautiful 🇮🇳',
-                tag: 'Special #5'
+                title: 'Brave Heart & Pure Soul 🇮🇳',
+                tag: '🇮🇳 BIG DREAMS'
             },
             {
                 url: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80',
-                title: 'Forever Radiant • Happy Birthday',
-                tag: 'Special #6'
+                title: 'Forever Radiant • Happy Birthday Meghu',
+                tag: '🎂 HAPPY BIRTHDAY'
             }
         ];
 
-        // Load photos from LocalStorage or use defaults
         let photos = [];
         try {
-            const stored = localStorage.getItem('iaf_meghu_photos');
+            const stored = localStorage.getItem('iaf_meghu_photos_v2');
             if (stored) {
                 photos = JSON.parse(stored);
             } else {
@@ -1587,7 +1607,7 @@
         const tabGridMode = document.getElementById('tabGridMode');
         const tabCarouselMode = document.getElementById('tabCarouselMode');
 
-        let currentViewMode = 'grid'; // 'grid' | 'carousel'
+        let currentViewMode = 'grid';
         let carouselRotation = 0;
         let isCarouselAutoPlaying = true;
         let carouselInterval = null;
@@ -1603,7 +1623,7 @@
 
                 card.innerHTML = `
                     <div class="frame-top-wings">
-                        <i class="fas fa-fighter-jet"></i> IAF PILOT PRIDE <i class="fas fa-fighter-jet" style="transform: scaleX(-1);"></i>
+                        <i class="fas fa-sparkles"></i> ${item.tag || '✨ MEGHU SPECIAL ✨'} <i class="fas fa-heart" style="color:var(--heart-pink); font-size:0.75rem;"></i>
                     </div>
                     <span class="corner-bracket tl"></span>
                     <span class="corner-bracket tr"></span>
@@ -1624,17 +1644,14 @@
                     </div>
                 `;
 
-                // Add 3D Tilt Physics on mouse move
                 add3DTiltEffect(card);
 
-                // Open Lightbox on card click
                 card.addEventListener('click', (e) => {
                     if (!e.target.closest('.card-delete-btn')) {
                         openLightbox(index);
                     }
                 });
 
-                // Delete Photo
                 const delBtn = card.querySelector('.card-delete-btn');
                 delBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -1665,7 +1682,7 @@
                 itemEl.innerHTML = `
                     <div class="frame-3d-card" style="height:100%; aspect-ratio:auto;">
                         <div class="frame-top-wings" style="font-size:0.7rem;">
-                            <i class="fas fa-star"></i> IAF SPECIAL
+                            <i class="fas fa-heart" style="color:var(--heart-pink);"></i> ${item.tag || 'MEGHU'}
                         </div>
                         <span class="corner-bracket tl"></span>
                         <span class="corner-bracket tr"></span>
@@ -1708,7 +1725,6 @@
             if (carouselInterval) clearInterval(carouselInterval);
         }
 
-        // 3D Realistic Parallax Tilt Physics Handler
         function add3DTiltEffect(element) {
             let bounds;
 
@@ -1741,7 +1757,7 @@
         function updatePhotoCount() {
             photoCountDisplay.innerHTML = `
                 <i class="fas fa-images"></i>
-                <span>कुल ${photos.length} यादगार तस्वीरें</span>
+                <span>कुल ${photos.length} खूबसूरत यादें</span>
             `;
         }
 
@@ -1756,7 +1772,7 @@
 
         function savePhotos() {
             try {
-                localStorage.setItem('iaf_meghu_photos', JSON.stringify(photos));
+                localStorage.setItem('iaf_meghu_photos_v2', JSON.stringify(photos));
             } catch(e) {
                 console.log('Storage full or error:', e);
             }
@@ -1774,7 +1790,7 @@
                     photos.unshift({
                         url: event.target.result,
                         title: `मेघू की खूबसूरत याद • #${photos.length + 1}`,
-                        tag: 'New Memory'
+                        tag: '✨ MY SPECIAL MEGHU ✨'
                     });
                     loadedCount++;
                     if (loadedCount === files.length) {
@@ -1860,7 +1876,7 @@
         function updateLightboxContent() {
             const item = photos[currentLightboxIndex];
             lightboxImg.src = item.url;
-            lightboxCaptionText.textContent = item.title || '🎂 Happy Birthday Meghu (जिस्से)';
+            lightboxCaptionText.textContent = item.title || '🎂 Happy Birthday Meri Special Meghu (जिस्से)';
             lightboxCounterPill.textContent = `${currentLightboxIndex + 1} / ${photos.length}`;
         }
 
@@ -1902,20 +1918,17 @@
         function trigger21JetSalute() {
             soundEngine.playFanfare();
 
-            // Scramble a swarm of jets with tricolor smoke
             for (let i = 0; i < 7; i++) {
                 setTimeout(() => {
                     spawnJet(i % 2 === 0 ? 'trishul' : 'vic');
                 }, i * 450);
             }
 
-            // Show Salute Banner Popup
             salutePopup.classList.add('active');
             setTimeout(() => {
                 salutePopup.classList.remove('active');
-            }, 4500);
+            }, 4800);
 
-            // Spawn Confetti Shower
             createConfettiStorm();
         }
 
@@ -1932,10 +1945,10 @@
 
         // Confetti & Tricolor Sparkle Particle Generator
         function createConfettiStorm() {
-            const emojis = ['🇮🇳', '✈️', '🎂', '⭐', '✨', '👑', '💛', '🎉'];
-            const colors = ['#FF9933', '#FFFFFF', '#138808', '#f5d77f'];
+            const emojis = ['🇮🇳', '✈️', '🎂', '⭐', '✨', '💖', '🌸', '🎉'];
+            const colors = ['#FF9933', '#FFFFFF', '#138808', '#f5d77f', '#ff5e97'];
 
-            for (let i = 0; i < 60; i++) {
+            for (let i = 0; i < 65; i++) {
                 setTimeout(() => {
                     const el = document.createElement('div');
                     el.style.cssText = `
@@ -1955,7 +1968,6 @@
             }
         }
 
-        // Inject dynamic keyframe for confetti
         const dynStyle = document.createElement('style');
         dynStyle.textContent = `
             @keyframes fallDown {
@@ -1968,7 +1980,7 @@
 
         // --- 6. INITIALIZATION ---
         renderGrid();
-        console.log('🇮🇳 Indian Air Force 3D Birthday Celebration Engine Loaded! Touch the sky with glory!');
+        console.log('🇮🇳 Air Force 3D Celebration for Meghu (जिस्से) Ready! Touch the sky with glory & big dreams!');
     })();
     </script>
 </body>
