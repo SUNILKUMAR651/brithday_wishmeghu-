@@ -1066,15 +1066,15 @@
         <!-- Birthday Letter / Special Loving Tribute -->
         <div class="tribute-box">
             <div class="tribute-text">
-                "भले ही राहें बदल जाएं, पर तेरे हौसलों की उड़ान कभी कम नहीं होगी!<br>
-                तू एक मेहनती और होनहार <strong>Student</strong> है, सबसे प्यारी इंसान है, और मेरी सबसे खास <strong>'मेघू (जिस्से)'</strong> है।<br>
-                तेरा वो एयरफोर्स का जज्बा आज भी तेरी आंखों और तेरे मजबूत इरादों में चमकता है!<br>
-                <strong>जन्मदिन की ढेर सारी शुभकामनाएं मेघू!</strong><br>
-                तू अपनी जिंदगी में हर वो मुकाम हासिल करे, जिसकी तू हकदार है!" ✈️💖🌟
+                "<strong>✨ HAPPY BIRTHDAY, MEGHU ✨</strong><br><br>
+                तेरी श्रद्धा, तेरी मासूमियत और तेरा ईश्वर पर विश्वास ही तेरी सबसे बड़ी शक्ति है।<br>
+                भगवान तुझे लंबी उम्र, अच्छी सेहत और बेशुमार कामयाबी दें।<br>
+                <span style="color: var(--gold-primary); font-weight: 700;">तू हमेशा आसमान की बुलंदियों को छूए और जमीन से जुड़ी रहे। 🌸🕊️</span><br><br>
+                भले ही राहें बदल जाएं, पर तेरे हौसलों की उड़ान कभी कम नहीं होगी! तू हमेशा मेरे लिए सबसे खास है!" ✈️💖🎉
             </div>
             <div class="tribute-sender">
                 <i class="fas fa-heart" style="color:var(--heart-pink);"></i> 
-                हमेशा मुस्कुराती रहो • तेरा अपना शुभचिंतक & स्काई गार्जियन 
+                हमेशा मुस्कुराती रहो • तेरी कामयाबी और लंबी उम्र की दुआओं के साथ 
                 <i class="fas fa-heart" style="color:var(--heart-pink);"></i>
             </div>
         </div>
@@ -1108,13 +1108,14 @@
 
     <!-- 21-Jet Salute Air Show Banner Popup -->
     <div class="salute-banner-popup" id="salutePopup">
-        <div class="iaf-crest" style="font-size: 3rem; color: var(--gold-primary); margin-bottom: 0.5rem;">
+        <div class="iaf-crest" style="font-size: 2.8rem; color: var(--gold-primary); margin-bottom: 0.5rem;">
             <i class="fas fa-fighter-jet"></i> 💖 <i class="fas fa-fighter-jet" style="transform: scaleX(-1);"></i>
         </div>
-        <h2 class="salute-banner-title">✨ SPECIAL AIR SALUTE FOR MEGHU ✨</h2>
+        <h2 class="salute-banner-title">✨ HAPPY BIRTHDAY, MEGHU ✨</h2>
         <div class="salute-banner-sub">
-            जन्मदिन की ढेर सारी शुभकामनाएं, मेरी सबसे खास मेघू (जिस्से)!<br>
-            <span style="color: var(--tiranga-saffron); font-size: 1.1em;">तेरे सपनों और हौसलों को</span> पूरे आसमान का सलाम! ✈️💖🇮🇳
+            तेरी श्रद्धा, तेरी मासूमियत और तेरा ईश्वर पर विश्वास ही तेरी सबसे बड़ी शक्ति है।<br>
+            भगवान तुझे लंबी उम्र, अच्छी सेहत और बेशुमार कामयाबी दें।<br>
+            <span style="color: var(--tiranga-saffron); font-size: 1.15em; font-weight: 800;">तू हमेशा आसमान की बुलंदियों को छूए और जमीन से जुड़ी रहे।</span> 🌸🕊️ ✈️💖🎉
         </div>
     </div>
 
@@ -1918,12 +1919,13 @@
             salutePopup.classList.add('active');
             setTimeout(() => {
                 salutePopup.classList.remove('active');
-            }, 4800);
+            }, 6500);
 
             createConfettiStorm();
         }
 
         saluteTriggerBtn.addEventListener('click', trigger21JetSalute);
+        salutePopup.addEventListener('click', () => salutePopup.classList.remove('active'));
         scrambleJetBtn.addEventListener('click', () => spawnJet('trishul'));
 
         soundToggleBtn.addEventListener('click', () => {
