@@ -1532,47 +1532,54 @@
 
         // --- 3. PHOTO MANAGEMENT & 3D INTERACTIVE GALLERY ---
         const DEFAULT_MEMORIES = [
-            {
-                url: 'images/1.jpg',
-                fallback: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
-                title: 'मासूम मुस्कान • Meri Sweet Meghu 💖',
-                tag: '✨ SPECIAL MEGHU ✨'
-            },
-            {
-                url: 'images/2.jpg',
-                fallback: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80',
-                title: 'आंखों में उड़ने के सपने ✈️✨',
-                tag: '🌟 DREAMS TO FLY'
-            },
-            {
-                url: 'images/3.jpg',
-                fallback: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80',
-                title: 'The Bright Student 📚🌟',
-                tag: '💫 SHINING STAR'
-            },
-            {
-                url: 'images/4.jpg',
-                fallback: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80',
-                title: 'Touch The Sky With Glory 🌸',
-                tag: '💖 FOREVER SPECIAL'
-            },
-            {
-                url: 'images/5.jpg',
-                fallback: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80',
-                title: 'Brave Heart & Pure Soul 🇮🇳',
-                tag: '🇮🇳 BIG DREAMS'
-            },
-            {
-                url: 'images/6.jpg',
-                fallback: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80',
-                title: 'Forever Radiant • Happy Birthday Meghu',
-                tag: '🎂 HAPPY BIRTHDAY'
-            }
+            { url: 'images/meghu_01.jpeg', title: 'मासूम मुस्कान • Meri Sweet Meghu 💖', tag: '✨ SPECIAL MEGHU ✨' },
+            { url: 'images/meghu_02.jpeg', title: 'आंखों में उड़ने के सपने ✈️✨', tag: '🌟 DREAMS TO FLY' },
+            { url: 'images/meghu_03.jpeg', title: 'The Brightest Student 📚🌟', tag: '🎓 BRIGHT SCHOLAR' },
+            { url: 'images/meghu_04.jpeg', title: 'Touch The Sky With Glory 🌸', tag: '💖 FOREVER SPECIAL' },
+            { url: 'images/meghu_05.jpeg', title: 'ईश्वर पर अटूट विश्वास 🕊️🙏', tag: '🙏 PURE FAITH' },
+            { url: 'images/meghu_06.jpeg', title: 'हौसलों की ऊंची उड़ान ✈️🇮🇳', tag: '🇮🇳 BIG DREAMS' },
+            { url: 'images/meghu_07.jpeg', title: 'सादगी और मासूमियत का रूप 🌸✨', tag: '🌸 SWEET INNOCENCE' },
+            { url: 'images/meghu_08.jpeg', title: 'तेरी मुस्कान, मेरी खुशी 😊💖', tag: '💫 SHINING STAR' },
+            { url: 'images/meghu_09.jpeg', title: 'सपनों को सच करने का जज्बा 🚀📚', tag: '🔥 PASSIONATE' },
+            { url: 'images/meghu_10.jpeg', title: 'जिस्से • The Most Special Person 💎', tag: '✨ JIKSE SPECIAL ✨' },
+            { url: 'images/meghu_11.jpeg', title: 'आसमान की बुलंदियों की ओर ✈️🌤️', tag: '🌟 SKY REACHER' },
+            { url: 'images/meghu_12.jpeg', title: 'हर पल खिलखिलाती यादें 🌺💫', tag: '💖 SWEET SMILE' },
+            { url: 'images/meghu_13.jpeg', title: 'ज्ञान और लगन की मूरत 📖🎓', tag: '📚 STUDIOUS' },
+            { url: 'images/meghu_14.jpeg', title: 'मजबूत इरादे, नेक दिल 💖🛡️', tag: '💎 PURE HEART' },
+            { url: 'images/meghu_15.jpeg', title: 'भगवान की सबसे प्यारी रचना 🌸🕊️', tag: '✨ BLESSED SOUL' },
+            { url: 'images/meghu_16.jpeg', title: 'हंसते हुए हर मुश्किल आसान 🌟😊', tag: '🌻 BRIGHT VIBES' },
+            { url: 'images/meghu_17.jpeg', title: 'तेरी हर ख्वाहिश पूरी हो ✈️🌠', tag: '🎂 BIRTHDAY WISH' },
+            { url: 'images/meghu_18.jpeg', title: 'मेहनत से चमकेगा मुकद्दर 📚✨', tag: '🎓 FUTURE STAR' },
+            { url: 'images/meghu_19.jpeg', title: 'दुआओं का खूबसूरत साया 🕊️💖', tag: '🙏 PRAYERS & LOVE' },
+            { url: 'images/meghu_20.jpeg', title: 'फाइटर स्पिरिट • कभी न रुकना ✈️🔥', tag: '🇮🇳 UNSTOPPABLE' },
+            { url: 'images/meghu_21.jpeg', title: 'सच्ची और मासूम दोस्त 🌸💎', tag: '💖 DEAR MEGHU' },
+            { url: 'images/meghu_22.jpeg', title: 'जिंदगी का सबसे खास तोहफा 🎁✨', tag: '🌟 PRECIOUS' },
+            { url: 'images/meghu_23.jpeg', title: 'किताबों की दुनिया और बड़े सपने 📚✈️', tag: '📖 DREAMER' },
+            { url: 'images/meghu_24.jpeg', title: 'सफलता तेरे कदम चूमेगी 🏆🌟', tag: '💫 VICTORIOUS' },
+            { url: 'images/meghu_25.jpeg', title: 'हमेशा जमीन से जुड़ी 🌸🌿', tag: '🕊️ HUMBLE HEART' },
+            { url: 'images/meghu_26.jpeg', title: 'तेरी हंसी में बसती है रोशनी ☀️💖', tag: '✨ RADIANT JOY' },
+            { url: 'images/meghu_27.jpeg', title: 'ईश्वर की कृपा हमेशा साथ रहे 🙏🌸', tag: '🕊️ DIVINE GRACE' },
+            { url: 'images/meghu_28.jpeg', title: 'लक्ष्य की तरफ बढ़ते कदम 🎯📚', tag: '🎓 FOCUSED' },
+            { url: 'images/meghu_29.jpeg', title: 'खुशियों का सदाबहार मौसम 🌺🎉', tag: '💖 CHEERFUL' },
+            { url: 'images/meghu_30.jpeg', title: 'दिल से निकली हर दुआ तेरे नाम 🤲✨', tag: '🎂 CELEBRATION' },
+            { url: 'images/meghu_31.jpeg', title: 'आसमान को छूने की चाहत ✈️🌌', tag: '🌟 SKY WINGS' },
+            { url: 'images/meghu_32.jpeg', title: 'प्यारी सी अदा, मीठी सी बात 🌸💖', tag: '🌸 SWEET MEGHU' },
+            { url: 'images/meghu_33.jpeg', title: 'हौसले जो कभी न डगमगाएं 💪✨', tag: '🔥 COURAGEOUS' },
+            { url: 'images/meghu_34.jpeg', title: 'सूरज की तरह चमकती रहो ☀️🌟', tag: '💫 SHINING' },
+            { url: 'images/meghu_35.jpeg', title: 'सदा मुस्कुराती रहो मेघू 😊💖', tag: '💖 FOREVER HAPPY' },
+            { url: 'images/meghu_36.jpeg', title: 'मेहनत, श्रद्धा और विश्वास 📖🙏', tag: '🎓 DEDICATION' },
+            { url: 'images/meghu_37.jpeg', title: 'तेरी हर मंजिल आसान हो 🏆🕊️', tag: '🌟 SUCCESS' },
+            { url: 'images/meghu_38.jpeg', title: 'सादगी में छुपा अनमोल रूप 🌸💎', tag: '✨ ELEGANT' },
+            { url: 'images/meghu_39.jpeg', title: 'तेरी खुशियों की कभी शाम न हो 🎉💖', tag: '🎂 JOYFUL MOMENTS' },
+            { url: 'images/meghu_40.jpeg', title: 'हमेशा खास, हमेशा अनमोल 👑✨', tag: '💎 SPECIAL ONE' },
+            { url: 'images/meghu_41.jpeg', title: 'तेरे सपनों को पूरे आसमान का सलाम ✈️🇮🇳', tag: '🇮🇳 SALUTE' },
+            { url: 'images/meghu_42.jpeg', title: 'जिस्से • तू हमेशा नंबर 1 है 🥇💖', tag: '✨ MY FAVORITE ✨' },
+            { url: 'images/meghu_43.jpeg', title: 'Happy Birthday Meri Dearest Meghu 🎂🎉', tag: '🎂 HAPPY BIRTHDAY 💖' }
         ];
 
         let photos = [];
         try {
-            const stored = localStorage.getItem('iaf_meghu_photos_v2');
+            const stored = localStorage.getItem('iaf_meghu_photos_v4');
             if (stored) {
                 photos = JSON.parse(stored);
             } else {
