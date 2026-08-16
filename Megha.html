@@ -554,17 +554,17 @@
             background: #ff001e;
         }
 
-        /* Mode 2: 3D Rotating Cylinder Carousel (Silky Slow Step Rotation) */
+        /* Mode 2: 3D Coverflow Carousel */
         .carousel-3d-stage {
             display: none;
             width: 100%;
             height: 520px;
-            perspective: 1300px;
+            perspective: 1100px;
             position: relative;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            padding: 2rem 0;
+            overflow: visible;
+            margin: 1.5rem 0 3.5rem;
         }
 
         .carousel-3d-stage.active {
@@ -572,32 +572,41 @@
         }
 
         .carousel-3d-ring {
-            width: 280px;
-            height: 380px;
-            position: absolute;
+            width: 100%;
+            height: 100%;
+            position: relative;
             transform-style: preserve-3d;
-            /* Smooth 1-1.2s elegant glide between cards */
-            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .carousel-3d-item {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
+            width: 280px;
+            height: 380px;
+            left: 50%;
+            top: 50%;
+            margin-left: -140px;
+            margin-top: -190px;
             transform-style: preserve-3d;
             cursor: pointer;
+            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.7s ease, filter 0.7s ease;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .carousel-3d-item .frame-3d-card {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: auto;
         }
 
         .carousel-nav-controls {
             position: absolute;
-            bottom: 20px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
             gap: 1.5rem;
-            z-index: 20;
+            z-index: 60;
         }
 
         .btn-car-nav {
@@ -632,7 +641,7 @@
             background: rgba(10, 28, 54, 0.6);
             border: 1px solid var(--glass-border);
             border-radius: 16px;
-            margin: 2rem 0 1rem;
+            margin: 2rem 0 1.5rem;
             font-size: 0.95rem;
             color: #a8c8e8;
             flex-wrap: wrap;
@@ -642,21 +651,28 @@
         .photo-count-badge {
             display: inline-flex;
             align-items: center;
+            gap: 0.6rem;
+            font-weight: 800;
+            color: var(--gold-primary);
+        }
+
         /* Birthday Tribute Box - Responsive Mobile-First Design */
         .tribute-box {
-            background: linear-gradient(135deg, rgba(13, 40, 79, 0.92), rgba(5, 19, 41, 0.98));
+            background: linear-gradient(135deg, rgba(13, 40, 79, 0.94), rgba(5, 19, 41, 0.98));
             border: 2px solid var(--gold-secondary);
             border-radius: 28px;
             padding: 2.5rem 2rem 2rem;
-            margin: 3.5rem auto 2rem;
+            margin: 4.5rem auto 2.5rem;
             text-align: center;
             position: relative;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 40px rgba(212, 175, 55, 0.25);
             backdrop-filter: blur(20px);
             max-width: 920px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            clear: both;
+            z-index: 20;
         }
 
         .tribute-header-badge {
@@ -1625,7 +1641,7 @@
 
         // --- 3. PHOTO MANAGEMENT & 3D INTERACTIVE GALLERY ---
         const DEFAULT_MEMORIES = [
-            { url: 'images/meghu_01.jpeg', title: 'मासूम मुस्कान •  💖', tag: '✨ SPECIAL MEGHU ✨' },
+            { url: 'images/meghu_01.jpeg', title: 'मासूम मुस्कान • Meri Sweet Megha 💖', tag: '✨ SPECIAL MEGHA ✨' },
             { url: 'images/meghu_02.jpeg', title: 'आंखों में उड़ने के सपने ✈️✨', tag: '🌟 DREAMS TO FLY' },
             { url: 'images/meghu_03.jpeg', title: 'The Brightest Student 📚🌟', tag: '🎓 BRIGHT SCHOLAR' },
             { url: 'images/meghu_04.jpeg', title: 'Touch The Sky With Glory 🌸', tag: '💖 FOREVER SPECIAL' },
@@ -1747,25 +1763,23 @@
             updatePhotoCount();
         }
 
-        // Render 3D Cylindrical Ring Carousel
+        // --- 3. PHOTO MANAGEMENT & 3D COVERFLOW CAROUSEL ---
+        let currentCarouselIndex = 0;
+
         function renderCarousel() {
             carousel3DRing.innerHTML = '';
             const total = photos.length;
             if (total === 0) return;
 
-            const radius = Math.max(340, total * 52);
-            const angleStep = 360 / total;
-
             photos.forEach((item, index) => {
                 const itemEl = document.createElement('div');
                 itemEl.className = 'carousel-3d-item';
-                const angle = index * angleStep;
-                itemEl.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+                itemEl.dataset.index = index;
 
                 itemEl.innerHTML = `
-                    <div class="frame-3d-card" style="height:100%; aspect-ratio:auto;">
+                    <div class="frame-3d-card">
                         <div class="frame-top-wings" style="font-size:0.7rem;">
-                            <i class="fas fa-heart" style="color:var(--heart-pink);"></i> ${item.tag || 'MEGHU'}
+                            <i class="fas fa-heart" style="color:var(--heart-pink);"></i> ${item.tag || 'MEGHA'}
                         </div>
                         <span class="corner-bracket tl"></span>
                         <span class="corner-bracket tr"></span>
@@ -1773,7 +1787,7 @@
                         <span class="corner-bracket br"></span>
                         <div class="frame-inner-matte">
                             <div class="glass-reflection"></div>
-                            <img src="${item.url}" onerror="if('${item.fallback || ''}' && this.src !== '${item.fallback || ''}') { this.src = '${item.fallback || ''}'; }" alt="${item.title || 'Meghu Photo'}" loading="lazy">
+                            <img src="${item.url}" onerror="if('${item.fallback || ''}' && this.src !== '${item.fallback || ''}') { this.src = '${item.fallback || ''}'; }" alt="${item.title || 'Megha Photo'}" loading="lazy">
                             <div class="frame-caption-bar">
                                 <span class="frame-caption-title">${item.title || 'Memory'}</span>
                                 <span class="frame-badge-no">#${index + 1}</span>
@@ -1782,7 +1796,17 @@
                     </div>
                 `;
 
-                itemEl.addEventListener('click', () => openLightbox(index));
+                itemEl.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (index === currentCarouselIndex) {
+                        openLightbox(index);
+                    } else {
+                        currentCarouselIndex = index;
+                        updateCarouselTransform();
+                        if (isCarouselAutoPlaying) startCarouselAuto();
+                    }
+                });
+
                 carousel3DRing.appendChild(itemEl);
             });
 
@@ -1790,21 +1814,68 @@
         }
 
         function updateCarouselTransform() {
-            carousel3DRing.style.transform = `rotateY(${carouselRotation}deg)`;
+            const total = photos.length;
+            if (!total) return;
+
+            const isMobile = window.innerWidth < 650;
+            const stepX = isMobile ? 120 : 230;
+            const items = carousel3DRing.querySelectorAll('.carousel-3d-item');
+
+            items.forEach((card, idx) => {
+                let diff = idx - currentCarouselIndex;
+                if (diff > total / 2) diff -= total;
+                if (diff < -total / 2) diff += total;
+
+                const absDiff = Math.abs(diff);
+
+                if (diff === 0) {
+                    card.style.transform = 'translateX(0px) translateZ(90px) rotateY(0deg) scale(1.06)';
+                    card.style.opacity = '1';
+                    card.style.zIndex = '50';
+                    card.style.pointerEvents = 'auto';
+                    card.style.filter = 'drop-shadow(0 20px 40px rgba(0,0,0,0.8)) drop-shadow(0 0 30px rgba(212,175,55,0.65))';
+                } else if (absDiff === 1) {
+                    const dir = diff > 0 ? 1 : -1;
+                    const tx = dir * stepX;
+                    const tz = -70;
+                    const ry = -dir * (isMobile ? 26 : 38);
+                    const sc = isMobile ? 0.85 : 0.88;
+                    card.style.transform = `translateX(${tx}px) translateZ(${tz}px) rotateY(${ry}deg) scale(${sc})`;
+                    card.style.opacity = '0.85';
+                    card.style.zIndex = '40';
+                    card.style.pointerEvents = 'auto';
+                    card.style.filter = 'brightness(0.78) drop-shadow(0 15px 30px rgba(0,0,0,0.6))';
+                } else if (absDiff === 2) {
+                    const dir = diff > 0 ? 1 : -1;
+                    const tx = dir * (stepX * 1.8);
+                    const tz = -160;
+                    const ry = -dir * (isMobile ? 38 : 50);
+                    const sc = isMobile ? 0.72 : 0.76;
+                    card.style.transform = `translateX(${tx}px) translateZ(${tz}px) rotateY(${ry}deg) scale(${sc})`;
+                    card.style.opacity = '0.55';
+                    card.style.zIndex = '30';
+                    card.style.pointerEvents = 'auto';
+                    card.style.filter = 'brightness(0.55) drop-shadow(0 10px 20px rgba(0,0,0,0.5))';
+                } else {
+                    const dir = diff > 0 ? 1 : -1;
+                    card.style.transform = `translateX(${dir * 500}px) translateZ(-350px) scale(0.4)`;
+                    card.style.opacity = '0';
+                    card.style.zIndex = '1';
+                    card.style.pointerEvents = 'none';
+                }
+            });
         }
 
-        // Smooth 1-by-1 Step Rotation: Stays on photo for 3.5s, then smooth 1.2s transition
+        // Smooth 1-by-1 Step Rotation: Stays on photo for 3.5s, then smooth slide
         function stepCarouselNext() {
             if (!photos.length) return;
-            const step = 360 / photos.length;
-            carouselRotation -= step;
+            currentCarouselIndex = (currentCarouselIndex + 1) % photos.length;
             updateCarouselTransform();
         }
 
         function stepCarouselPrev() {
             if (!photos.length) return;
-            const step = 360 / photos.length;
-            carouselRotation += step;
+            currentCarouselIndex = (currentCarouselIndex - 1 + photos.length) % photos.length;
             updateCarouselTransform();
         }
 
@@ -1815,7 +1886,7 @@
                 if (currentViewMode === 'carousel' && photos.length > 0) {
                     stepCarouselNext();
                 }
-            }, 3600); // Relaxed, gentle interval (3.6s per photo with 1.2s smooth slide)
+            }, 3600);
         }
 
         function stopCarouselAuto() {
@@ -1824,6 +1895,23 @@
                 carouselTimer = null;
             }
         }
+
+        // Mobile Touch Swipe Support for 3D Carousel
+        let touchStartX = 0;
+        let touchEndX = 0;
+        carousel3DStage.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carousel3DStage.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchEndX - touchStartX;
+            if (Math.abs(diff) > 40) {
+                if (diff < 0) stepCarouselNext();
+                else stepCarouselPrev();
+                if (isCarouselAutoPlaying) startCarouselAuto();
+            }
+        }, { passive: true });
 
         function add3DTiltEffect(element) {
             let bounds;
