@@ -406,7 +406,7 @@
             box-shadow: var(--card-shadow), 0 0 25px rgba(212, 175, 55, 0.25);
             cursor: pointer;
             transform-style: preserve-3d;
-            transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
             aspect-ratio: 4 / 5;
             animation: cardAppear 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
         }
@@ -554,12 +554,12 @@
             background: #ff001e;
         }
 
-        /* Mode 2: 3D Rotating Cylinder Carousel */
+        /* Mode 2: 3D Rotating Cylinder Carousel (Silky Slow Step Rotation) */
         .carousel-3d-stage {
             display: none;
             width: 100%;
             height: 520px;
-            perspective: 1200px;
+            perspective: 1300px;
             position: relative;
             align-items: center;
             justify-content: center;
@@ -576,7 +576,8 @@
             height: 380px;
             position: absolute;
             transform-style: preserve-3d;
-            transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1);
+            /* Smooth 1-1.2s elegant glide between cards */
+            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .carousel-3d-item {
@@ -1055,9 +1056,9 @@
             <div class="carousel-3d-stage" id="carousel3DStage">
                 <div class="carousel-3d-ring" id="carousel3DRing"></div>
                 <div class="carousel-nav-controls">
-                    <button class="btn-car-nav" id="carPrevBtn"><i class="fas fa-chevron-left"></i></button>
-                    <button class="btn-car-nav" id="carPlayBtn" title="Auto Rotate"><i class="fas fa-play"></i></button>
-                    <button class="btn-car-nav" id="carNextBtn"><i class="fas fa-chevron-right"></i></button>
+                    <button class="btn-car-nav" id="carPrevBtn" title="Previous Photo (पिछली फोटो)"><i class="fas fa-chevron-left"></i></button>
+                    <button class="btn-car-nav" id="carPlayBtn" title="Auto Rotate / रोकें या चलाएं"><i class="fas fa-pause"></i></button>
+                    <button class="btn-car-nav" id="carNextBtn" title="Next Photo (अगली फोटो)"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
@@ -1126,7 +1127,7 @@
     (function() {
         'use strict';
 
-        // --- 1. AUDIO SYNTHESIZER (No external mp3 failures) ---
+        // --- 1. AUDIO SYNTHESIZER ---
         class IAFSoundEngine {
             constructor() {
                 this.ctx = null;
@@ -1145,7 +1146,6 @@
                 }
             }
 
-            // Realistic Jet Flyby Swoosh with Doppler sweep
             playJetFlyby() {
                 if (this.isMuted) return;
                 this.init();
@@ -1157,7 +1157,6 @@
                     const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
                     const output = buffer.getChannelData(0);
 
-                    // Pink/White noise generation
                     let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
                     for (let i = 0; i < bufferSize; i++) {
                         const white = Math.random() * 2 - 1;
@@ -1174,7 +1173,6 @@
                     const noise = this.ctx.createBufferSource();
                     noise.buffer = buffer;
 
-                    // Dynamic Resonant Filter for Jet Doppler swoosh
                     const filter = this.ctx.createBiquadFilter();
                     filter.type = 'bandpass';
                     filter.Q.setValueAtTime(3.5, this.ctx.currentTime);
@@ -1182,7 +1180,6 @@
                     filter.frequency.exponentialRampToValueAtTime(1400, this.ctx.currentTime + 0.8);
                     filter.frequency.exponentialRampToValueAtTime(150, this.ctx.currentTime + duration);
 
-                    // Gain envelope
                     const gain = this.ctx.createGain();
                     gain.gain.setValueAtTime(0.01, this.ctx.currentTime);
                     gain.gain.linearRampToValueAtTime(0.28, this.ctx.currentTime + 0.7);
@@ -1198,7 +1195,6 @@
                 }
             }
 
-            // Celebratory Chime / Fanfare
             playFanfare() {
                 if (this.isMuted) return;
                 this.init();
@@ -1244,7 +1240,6 @@
             initStars();
         });
 
-        // Stars & Sparkles in Background
         let stars = [];
         function initStars() {
             stars = [];
@@ -1262,7 +1257,6 @@
         }
         initStars();
 
-        // Tricolor Smoke Particle System
         class SmokeParticle {
             constructor(x, y, vx, vy, color, initialSize, life) {
                 this.x = x;
@@ -1300,7 +1294,6 @@
 
         let smokeParticles = [];
 
-        // IAF Fighter Jet Class (Su-30MKI / Tejas style)
         class FighterJet {
             constructor(x, y, angle, speed, scale, type = 'patrol') {
                 this.x = x;
@@ -1321,24 +1314,20 @@
                 this.x += Math.cos(this.angle) * this.speed;
                 this.y += Math.sin(this.angle) * this.speed;
 
-                // Emit Tricolor Smoke Trails
                 this.smokeTimer++;
                 if (this.smokeTimer % 2 === 0) {
                     const wingSpan = 22 * this.scale;
                     const trailDist = -28 * this.scale;
 
-                    // Left wing/engine (Saffron)
                     const sOffsetAngle = this.angle - Math.PI / 2;
                     const sx = this.x + Math.cos(this.angle) * trailDist + Math.cos(sOffsetAngle) * wingSpan;
                     const sy = this.y + Math.sin(this.angle) * trailDist + Math.sin(sOffsetAngle) * wingSpan;
                     smokeParticles.push(new SmokeParticle(sx, sy, -Math.cos(this.angle) * 1.5, -Math.sin(this.angle) * 1.5, '#FF9933', 3.5 * this.scale, 75));
 
-                    // Center (White)
                     const cx = this.x + Math.cos(this.angle) * (trailDist - 4);
                     const cy = this.y + Math.sin(this.angle) * (trailDist - 4);
                     smokeParticles.push(new SmokeParticle(cx, cy, -Math.cos(this.angle) * 1.5, -Math.sin(this.angle) * 1.5, '#FFFFFF', 4 * this.scale, 80));
 
-                    // Right wing/engine (Green)
                     const gOffsetAngle = this.angle + Math.PI / 2;
                     const gx = this.x + Math.cos(this.angle) * trailDist + Math.cos(gOffsetAngle) * wingSpan;
                     const gy = this.y + Math.sin(this.angle) * trailDist + Math.sin(gOffsetAngle) * wingSpan;
@@ -1357,12 +1346,10 @@
                 ctx.rotate(this.angle + Math.PI / 2);
                 ctx.scale(this.scale, this.scale);
 
-                // Jet Drop Shadow
                 ctx.shadowColor = 'rgba(0, 0, 0, 0.45)';
                 ctx.shadowBlur = 15;
                 ctx.shadowOffsetY = 15;
 
-                // Afterburner Glow
                 ctx.beginPath();
                 ctx.moveTo(-7, 30);
                 ctx.lineTo(0, 48 + Math.random() * 12);
@@ -1372,12 +1359,10 @@
                 ctx.shadowBlur = 20;
                 ctx.fill();
 
-                // Main Fuselage & Delta Wings (IAF Camouflage Grey)
                 ctx.fillStyle = '#627c93';
                 ctx.strokeStyle = '#3b4e61';
                 ctx.lineWidth = 1.5;
 
-                // Main Jet Silhouette
                 ctx.beginPath();
                 ctx.moveTo(0, -42);
                 ctx.quadraticCurveTo(6, -20, 8, -5);
@@ -1404,14 +1389,12 @@
                 ctx.fill();
                 ctx.stroke();
 
-                // Structural Lines
                 ctx.strokeStyle = '#43586b';
                 ctx.beginPath();
                 ctx.moveTo(-28, 22); ctx.lineTo(-14, 22);
                 ctx.moveTo(28, 22); ctx.lineTo(14, 22);
                 ctx.stroke();
 
-                // Cockpit Canopy (Tinted Gold Glass)
                 ctx.beginPath();
                 ctx.ellipse(0, -18, 4, 14, 0, 0, Math.PI * 2);
                 ctx.fillStyle = 'rgba(245, 215, 127, 0.9)';
@@ -1420,7 +1403,6 @@
                 ctx.fill();
                 ctx.stroke();
 
-                // IAF Roundel on Wings
                 const drawRoundel = (rx, ry, r) => {
                     ctx.beginPath();
                     ctx.arc(rx, ry, r, 0, Math.PI * 2);
@@ -1441,7 +1423,6 @@
                 drawRoundel(-20, 12, 4.5);
                 drawRoundel(20, 12, 4.5);
 
-                // Fin Flash on Tail
                 ctx.fillStyle = '#FF9933'; ctx.fillRect(-10, 27, 2, 6);
                 ctx.fillStyle = '#FFFFFF'; ctx.fillRect(-8, 27, 2, 6);
                 ctx.fillStyle = '#138808'; ctx.fillRect(-6, 27, 2, 6);
@@ -1511,11 +1492,9 @@
             }
         });
 
-        // Main Canvas Loop
         function animateCanvas() {
             ctx.clearRect(0, 0, width, height);
 
-            // 1. Draw Stars
             for (let i = 0; i < stars.length; i++) {
                 const s = stars[i];
                 s.alpha += s.speed;
@@ -1527,7 +1506,6 @@
                 ctx.fill();
             }
 
-            // 2. Update & Draw Smoke
             for (let i = smokeParticles.length - 1; i >= 0; i--) {
                 const p = smokeParticles[i];
                 p.update();
@@ -1537,7 +1515,6 @@
                 }
             }
 
-            // 3. Update & Draw Jets
             for (let i = activeJets.length - 1; i >= 0; i--) {
                 const jet = activeJets[i];
                 jet.update();
@@ -1553,7 +1530,6 @@
 
 
         // --- 3. PHOTO MANAGEMENT & 3D INTERACTIVE GALLERY ---
-        // Warm, respectful, inspiring and loving default memories
         const DEFAULT_MEMORIES = [
             {
                 url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
@@ -1610,7 +1586,7 @@
         let currentViewMode = 'grid';
         let carouselRotation = 0;
         let isCarouselAutoPlaying = true;
-        let carouselInterval = null;
+        let carouselTimer = null;
 
         // Render 3D Perspective Grid
         function renderGrid() {
@@ -1670,7 +1646,7 @@
             const total = photos.length;
             if (total === 0) return;
 
-            const radius = Math.max(320, total * 48);
+            const radius = Math.max(340, total * 52);
             const angleStep = 360 / total;
 
             photos.forEach((item, index) => {
@@ -1710,19 +1686,36 @@
             carousel3DRing.style.transform = `rotateY(${carouselRotation}deg)`;
         }
 
+        // Smooth 1-by-1 Step Rotation: Stays on photo for 3.5s, then smooth 1.2s transition
+        function stepCarouselNext() {
+            if (!photos.length) return;
+            const step = 360 / photos.length;
+            carouselRotation -= step;
+            updateCarouselTransform();
+        }
+
+        function stepCarouselPrev() {
+            if (!photos.length) return;
+            const step = 360 / photos.length;
+            carouselRotation += step;
+            updateCarouselTransform();
+        }
+
         function startCarouselAuto() {
             stopCarouselAuto();
-            carouselInterval = setInterval(() => {
+            if (!isCarouselAutoPlaying) return;
+            carouselTimer = setInterval(() => {
                 if (currentViewMode === 'carousel' && photos.length > 0) {
-                    const angleStep = 360 / photos.length;
-                    carouselRotation -= angleStep * 0.25;
-                    updateCarouselTransform();
+                    stepCarouselNext();
                 }
-            }, 50);
+            }, 3600); // Relaxed, gentle interval (3.6s per photo with 1.2s smooth slide)
         }
 
         function stopCarouselAuto() {
-            if (carouselInterval) clearInterval(carouselInterval);
+            if (carouselTimer) {
+                clearInterval(carouselTimer);
+                carouselTimer = null;
+            }
         }
 
         function add3DTiltEffect(element) {
@@ -1739,10 +1732,10 @@
                 const xPct = mouseX / bounds.width - 0.5;
                 const yPct = mouseY / bounds.height - 0.5;
 
-                const rotateX = -yPct * 24;
-                const rotateY = xPct * 24;
+                const rotateX = -yPct * 20;
+                const rotateY = xPct * 20;
 
-                element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+                element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.04, 1.04, 1.04)`;
             }
 
             function onMouseLeave() {
@@ -1827,15 +1820,13 @@
         });
 
         document.getElementById('carPrevBtn').addEventListener('click', () => {
-            const step = 360 / (photos.length || 1);
-            carouselRotation += step;
-            updateCarouselTransform();
+            stepCarouselPrev();
+            if (isCarouselAutoPlaying) startCarouselAuto();
         });
 
         document.getElementById('carNextBtn').addEventListener('click', () => {
-            const step = 360 / (photos.length || 1);
-            carouselRotation -= step;
-            updateCarouselTransform();
+            stepCarouselNext();
+            if (isCarouselAutoPlaying) startCarouselAuto();
         });
 
         const carPlayBtn = document.getElementById('carPlayBtn');
@@ -1943,7 +1934,6 @@
 
         starCelebrationBtn.addEventListener('click', createConfettiStorm);
 
-        // Confetti & Tricolor Sparkle Particle Generator
         function createConfettiStorm() {
             const emojis = ['🇮🇳', '✈️', '🎂', '⭐', '✨', '💖', '🌸', '🎉'];
             const colors = ['#FF9933', '#FFFFFF', '#138808', '#f5d77f', '#ff5e97'];
